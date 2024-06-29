@@ -1,11 +1,158 @@
 @import "variables";
 
-body {
-  font-family: Arial, sans-serif;
-  background-color: $bg-color;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
   color: $text-color;
 }
 
-h1 {
-  color: $primary-color;
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: $bg-second;
+}
+
+.dashboard {
+  width: 1440px;
+  height: 1198px;
+  background: $bg-second;
+}
+
+//  -----Logo-----
+.logo {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+
+  &__title {
+    font-weight: 600;
+    font-size: 26px;
+    letter-spacing: 0.01em;
+  }
+
+  &__title::after {
+    content: "v.01";
+    position: relative;
+    left: 4px;
+
+    font-weight: 500;
+    font-size: 10px;
+    letter-spacing: -0.01em;
+    color: #838383;
+  }
+}
+//  -----Sidebar-----
+.sidebar {
+  width: 306px;
+  height: 100%;
+  padding-left: 28px;
+
+  box-shadow: 0 10px 60px 0 rgba(226, 236, 249, 0.5);
+  background: $bg-prime;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  //-----Sidebar-header-----
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+
+    gap: 52px;
+  }
+
+  &__logo {
+    margin-top: 37px;
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    list-style: none;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 11px 8px 11px 11px;
+    border-radius: 8px;
+    width: 250px;
+    height: 46px;
+  }
+
+  &__icon-link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+  }
+
+  &__link {
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+    color: $text-menu;
+
+    text-decoration: none;
+  }
+
+  //-----User-----
+
+  &__user {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 76px;
+  }
+
+  &__name {
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+  }
+
+  &__role {
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 0.01em;
+    color: #757575;
+
+    margin-top: -1px;
+  }
+
+  // ----Menu hover-----
+
+  &__item:hover {
+    background-color: $primary-color;
+  }
+
+  &__item:hover &__link {
+    color: #fff;
+  }
+
+  &__item:hover &__icon-stroke path {
+    stroke: #fff;
+  }
+
+  &__item:hover &__icon-fill path {
+    fill: #fff;
+  }
+
+  &__item:hover &__icon .stroke {
+    stroke: #fff;
+  }
+
+  &__item:hover &__icon .fill {
+    fill: #fff;
+  }
 }
