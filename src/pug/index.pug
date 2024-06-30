@@ -107,3 +107,118 @@ html
           .siderbar__userinfo 
             p.sidebar__name Evano
             p.sidebar__role Project Manager
+      //- -----Content-----
+      .dashboard__content
+        header.header.dashboard__header 
+          h1.header__title Hello Evano 
+            span.header__icon-wrapper
+              img.header__hand(src="../img/hand.png", alt="hand")
+            
+        main.dashboard__main
+          //- -----Main header-----
+          header.dashboard__main-header
+            .dashboard__text
+              h1.dashboard__main-title All Customers
+              a(href="#").dashboard__main-link Active Members
+            label.dashboard__search
+              svg.dashboard__search-icon(width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg")
+                path(d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="#7E7E7E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+                path(d="M21 21L16.65 16.65" stroke="#7E7E7E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+              input.dashboard__search-input(type="search", id="search", name="search", placeholder="Search")
+          .dashboard__main-content
+            //- -----Table-----
+            table.dashboard__table
+              thead
+                tr
+                  th Customer Name
+                  th Company
+                  th Phone Number
+                  th Email
+                  th Country
+                  th Status
+              tbody
+                tr
+                  td Jane Cooper
+                  td Microsoft
+                  td (225) 555-0118
+                  td jane@microsoft.com
+                  td United States
+                  td 
+                    .dashboard__table--active Active
+                tr
+                  td Floyd Miles
+                  td Yahoo
+                  td (205) 555-0100
+                  td floyd@yahoo.com
+                  td Kiribati
+                  td 
+                    .dashboard__table--inactive Inactive
+                tr
+                  td Ronald Richards
+                  td Adobe
+                  td (302) 555-0107
+                  td ronald@adobe.com
+                  td Israel
+                  td 
+                    .dashboard__table--inactive Inactive
+                tr
+                  td Marvin McKinney
+                  td Tesla
+                  td (252) 555-0126
+                  td marvin@tesla.com
+                  td Iran
+                  td 
+                    .dashboard__table--active Active
+                tr
+                  td Jerome Bell
+                  td Google
+                  td (629) 555-0129
+                  td jerome@google.com
+                  td Réunion
+                  td
+                    .dashboard__table--active Active
+                tr
+                  td Kathryn Murphy
+                  td Microsoft
+                  td (406) 555-0120
+                  td kathryn@microsoft.com
+                  td Curaçao
+                  td 
+                    .dashboard__table--active Active
+                tr
+                  td Jacob Jones
+                  td Yahoo
+                  td (208) 555-0112
+                  td jacob@yahoo.com
+                  td Brazil
+                  td
+                    .dashboard__table--active Active
+                tr
+                  td Kristin Watson
+                  td Facebook
+                  td (704) 555-0127
+                  td kristin@facebook.com
+                  td Åland Islands
+                  td
+                    .dashboard__table--inactive Inactive
+            //- -----Footer-----
+            .dashboard__footer 
+              p.dashboard__data Showing data 1 to 8 of  256K entries
+              ul.dashboard__footer-list 
+                li.dashboard__footer-item
+                  button.dashboard__footer-button <
+                li.dashboard__footer-item
+                  button.dashboard__footer-button.dashboard__footer-button--active 1
+                li.dashboard__footer-item
+                  button.dashboard__footer-button 2
+                li.dashboard__footer-item
+                  button.dashboard__footer-button 3
+                li.dashboard__footer-item
+                  button.dashboard__footer-button 4
+                li.dashboard__footer-item
+                  button.dashboard__footer-dots ...
+                li.dashboard__footer-item
+                  button.dashboard__footer-button 40
+                li.dashboard__footer-item
+                  button.dashboard__footer-button >
+          

@@ -16,6 +16,10 @@ body {
   width: 1440px;
   height: 1198px;
   background: $bg-second;
+
+  display: flex;
+  flex-direction: row;
+  gap: 71px;
 }
 
 //  -----Logo-----
@@ -154,5 +158,241 @@ body {
 
   &__item:hover &__icon .fill {
     fill: #fff;
+  }
+}
+
+// -----Content------
+
+.header {
+  margin-top: 41px;
+
+  &__title {
+    font-weight: 500;
+    font-size: 24px;
+    color: $text-color;
+  }
+
+  &__hand {
+    position: relative;
+    top: 2px;
+  }
+
+  &__icon-wrapper::after {
+    content: ",";
+  }
+}
+
+// -----Main-----
+
+.dashboard {
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    gap: 52px;
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    padding: 30px 44px 40px 38px;
+
+    width: 968px;
+    height: 812px;
+
+    border-radius: 30px;
+    background-color: $bg-prime;
+    box-shadow: 0 10px 60px 0 rgba(226, 236, 249, 0.5);
+  }
+
+  &__main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  &__main-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  &__main-title {
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: -0.01em;
+    color: $text-color;
+  }
+
+  &__main-link {
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+    color: #16c098;
+
+    text-decoration: none;
+  }
+
+  // -----Search-----
+
+  &__search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 9px;
+    padding-left: 8px;
+    padding-top: 5px;
+
+    background: #f9fbff;
+    border-radius: 10px;
+
+    width: 216px;
+    height: 38px;
+  }
+
+  &__search-input {
+    outline: none;
+    border: none;
+    width: 80%;
+
+    padding-left: 8px;
+
+    background: #f9fbff;
+
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: -0.01em;
+    font-family: "Poppins", sans-serif;
+
+    &::placeholder {
+      color: #b5b7c0;
+    }
+  }
+
+  // -----Table-----
+  &__table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+
+    height: 587px;
+
+    td {
+      padding: 24px 0;
+    }
+
+    th {
+      position: relative;
+      padding-bottom: 14px;
+
+      font-weight: 500;
+      font-size: 14px;
+      letter-spacing: -0.01em;
+      color: #b5b7c0;
+    }
+
+    td {
+      font-weight: 500;
+      font-size: 14px;
+      letter-spacing: -0.01em;
+      color: $text-main;
+      border: 1px solid black;
+    }
+
+    td:nth-child(6),
+    th:nth-child(6) {
+      text-align: center;
+    }
+
+    td:nth-child(6) {
+      padding: 0;
+    }
+
+    &--active {
+      background: rgba(22, 192, 152, 0.38);
+      border: 1px solid #00b087;
+      border-radius: 4px;
+      padding: 4px 12px;
+      width: 80px;
+      height: 29px;
+
+      font-weight: 500;
+      font-size: 14px;
+      letter-spacing: -0.01em;
+      color: #008767;
+    }
+
+    &--inactive {
+      background: #ffc5c5;
+      border: 1px solid #df0404;
+      border-radius: 4px;
+      padding: 4px 12px;
+      width: 80px;
+      height: 29px;
+
+      font-weight: 500;
+      font-size: 14px;
+      letter-spacing: -0.01em;
+      color: #df0404;
+    }
+
+    // td:nth-child(6)::before {
+    //   content: "";
+    //   width: 78px;
+    //   height: 27px;
+    //   bottom: 20px;
+    //   left: 0;
+    //   border: 1px solid black;
+    //   border-radius: 4px;
+    //   position: absolute;
+    // }
+
+    // -----Unerdlines-----
+    th::after {
+      content: "";
+      position: absolute;
+      left: -38px;
+      top: 34px;
+      height: 1px;
+      width: calc(100% + 44px + 38px);
+      background-color: #eee;
+    }
+
+    tr {
+      position: relative;
+    }
+
+    tbody tr::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 1px;
+      width: 100%;
+      background-color: #eee;
+    }
+  }
+
+  // -----Footer-----
+
+  &__footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__footer-list {
+    display: flex;
+    flex-direction: row;
   }
 }
