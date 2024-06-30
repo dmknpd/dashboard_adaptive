@@ -306,23 +306,52 @@ body {
       font-size: 14px;
       letter-spacing: -0.01em;
       color: $text-main;
-      border: 1px solid black;
     }
 
-    td:nth-child(6),
+    // td,
+    // th {
+    //   border: 1px solid black;
+    // }
+
+    th:nth-child(2),
+    td:nth-child(2) {
+      position: relative;
+      left: 1.5px;
+    }
+
+    th:nth-child(3),
+    td:nth-child(3) {
+      position: relative;
+      left: 32px;
+    }
+
+    th:nth-child(4),
+    td:nth-child(4) {
+      position: relative;
+      left: 31.5px;
+    }
+
+    th:nth-child(5),
+    td:nth-child(5) {
+      position: relative;
+      left: -4.5px;
+    }
+
     th:nth-child(6) {
-      text-align: center;
+      position: relative;
+      left: 12.5px;
     }
 
     td:nth-child(6) {
       padding: 0;
+      width: 80px;
     }
 
     &--active {
       background: rgba(22, 192, 152, 0.38);
       border: 1px solid #00b087;
       border-radius: 4px;
-      padding: 4px 12px;
+      padding: 3px 17px;
       width: 80px;
       height: 29px;
 
@@ -336,7 +365,7 @@ body {
       background: #ffc5c5;
       border: 1px solid #df0404;
       border-radius: 4px;
-      padding: 4px 12px;
+      padding: 3px 11px;
       width: 80px;
       height: 29px;
 
@@ -345,17 +374,6 @@ body {
       letter-spacing: -0.01em;
       color: #df0404;
     }
-
-    // td:nth-child(6)::before {
-    //   content: "";
-    //   width: 78px;
-    //   height: 27px;
-    //   bottom: 20px;
-    //   left: 0;
-    //   border: 1px solid black;
-    //   border-radius: 4px;
-    //   position: absolute;
-    // }
 
     // -----Unerdlines-----
     th::after {
