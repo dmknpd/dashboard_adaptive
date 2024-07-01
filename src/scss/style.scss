@@ -58,7 +58,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
 
-  //-----Sidebar-header-----
+  //-----Sidebar-----
 
   &__header {
     display: flex;
@@ -70,6 +70,8 @@ body {
   &__logo {
     margin-top: 37px;
   }
+
+  // -----Menu-----
 
   &__menu {
     display: flex;
@@ -107,6 +109,36 @@ body {
     text-decoration: none;
   }
 
+  // ----Menu hover-----
+
+  &__item:hover {
+    background-color: $primary-color;
+  }
+
+  &__item:hover &__link {
+    color: #fff;
+  }
+
+  &__item:hover &__icon-stroke path {
+    stroke: #fff;
+  }
+
+  &__item:hover &__icon-fill path {
+    fill: #fff;
+  }
+
+  &__item:hover &__icon .stroke {
+    stroke: #fff;
+  }
+
+  &__item:hover &__icon .fill {
+    fill: #fff;
+  }
+
+  &__item:hover &__arrow path {
+    stroke: #fff;
+  }
+
   //-----User-----
 
   &__user {
@@ -132,32 +164,6 @@ body {
     color: #757575;
 
     margin-top: -1px;
-  }
-
-  // ----Menu hover-----
-
-  &__item:hover {
-    background-color: $primary-color;
-  }
-
-  &__item:hover &__link {
-    color: #fff;
-  }
-
-  &__item:hover &__icon-stroke path {
-    stroke: #fff;
-  }
-
-  &__item:hover &__icon-fill path {
-    fill: #fff;
-  }
-
-  &__item:hover &__icon .stroke {
-    stroke: #fff;
-  }
-
-  &__item:hover &__icon .fill {
-    fill: #fff;
   }
 }
 
@@ -308,33 +314,32 @@ body {
       color: $text-main;
     }
 
-    // td,
-    // th {
-    //   border: 1px solid black;
-    // }
-
     th:nth-child(2),
     td:nth-child(2) {
       position: relative;
-      left: 1.5px;
+      left: 36px;
+      width: 120px;
     }
 
     th:nth-child(3),
     td:nth-child(3) {
       position: relative;
-      left: 32px;
+      left: 47px;
+      width: 180px;
     }
 
     th:nth-child(4),
     td:nth-child(4) {
       position: relative;
-      left: 31.5px;
+      left: 23px;
+      width: 220px;
     }
 
     th:nth-child(5),
     td:nth-child(5) {
       position: relative;
-      left: -4.5px;
+      left: 10px;
+      width: 150px;
     }
 
     th:nth-child(6) {
@@ -346,6 +351,8 @@ body {
       padding: 0;
       width: 80px;
     }
+
+    // -----td Status-----
 
     &--active {
       background: rgba(22, 192, 152, 0.38);
