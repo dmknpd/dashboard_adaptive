@@ -6,7 +6,9 @@ const cleanCSS = require("gulp-clean-css");
 const sourcemaps = require("gulp-sourcemaps");
 const rename = require("gulp-rename");
 const browserSync = require("browser-sync").create();
-const clean = require("gulp-clean"); // Добавляем плагин gulp-clean
+const clean = require("gulp-clean");
+const babel = require("gulp-babel");
+const uglify = require("gulp-uglify");
 
 // Пути к файлам
 const paths = {
@@ -61,33 +63,24 @@ function compileSass() {
     .pipe(browserSync.stream());
 }
 
-// Копирование скриптов
-function copyScripts() {
+// Транспиляция и минификация скриптов
+function processScripts() {
   return gulp
     .src(paths.scripts.src)
+    .pipe(sourcemaps.init())
+    .pipe(
+      babel({
+        presets: ["@babel/preset-env"],
+      })
+    )
+    .pipe(uglify())
+    .pipe(rename({ suffix: ".min" }))
+    .pipe(sourcemaps.write("."))
     .pipe(gulp.dest(paths.scripts.dest))
     .pipe(browserSync.stream());
 }
 
 // Копирование и оптимизация изображений
-// async function copyImages() {
-//   const imagemin = await import("gulp-imagemin");
-
-//   return gulp
-//     .src(paths.images.src)
-//     .pipe(
-//       imagemin.default([
-//         imagemin.mozjpeg({ quality: 100, progressive: true }),
-//         imagemin.optipng({ optimizationLevel: 5 }),
-//         imagemin.svgo({
-//           plugins: [{ removeViewBox: true }, { cleanupIDs: false }],
-//         }),
-//       ])
-//     )
-//     .pipe(gulp.dest(paths.images.dest))
-//     .pipe(browserSync.stream());
-// }
-
 function copyImages() {
   return gulp
     .src(paths.images.src)
@@ -99,7 +92,7 @@ function copyImages() {
 function watchFiles() {
   gulp.watch(paths.pug.src, compilePug);
   gulp.watch(paths.styles.src, compileSass);
-  gulp.watch(paths.scripts.src, copyScripts);
+  gulp.watch(paths.scripts.src, processScripts);
   gulp.watch(paths.images.src, copyImages);
 }
 
@@ -118,14 +111,14 @@ function liveServer() {
 // Определение задач
 const build = gulp.series(
   cleanDist,
-  gulp.parallel(compilePug, compileSass, copyScripts, copyImages)
+  gulp.parallel(compilePug, compileSass, processScripts, copyImages)
 );
 const serve = gulp.series(build, liveServer);
 
 // Экспорт задач
 exports.compilePug = compilePug;
 exports.compileSass = compileSass;
-exports.copyScripts = copyScripts;
+exports.processScripts = processScripts;
 exports.copyImages = copyImages;
 exports.build = build;
 exports.serve = serve;

@@ -13,7 +13,7 @@ body {
 }
 
 .dashboard {
-  width: 1440px;
+  width: 100%;
   height: 1198px;
   background: $bg-second;
 
@@ -46,8 +46,9 @@ body {
   }
 }
 //  -----Sidebar-----
+
 .sidebar {
-  width: 306px;
+  min-width: 306px;
   height: 100%;
   padding-left: 28px;
 
@@ -57,6 +58,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  z-index: 50;
 
   //-----Sidebar-----
 
@@ -71,6 +74,9 @@ body {
     margin-top: 37px;
   }
 
+  &__open {
+    display: none;
+  }
   // -----Menu-----
 
   &__menu {
@@ -109,36 +115,6 @@ body {
     text-decoration: none;
   }
 
-  // ----Menu hover-----
-
-  &__item:hover {
-    background-color: $primary-color;
-  }
-
-  &__item:hover &__link {
-    color: #fff;
-  }
-
-  &__item:hover &__icon-stroke path {
-    stroke: #fff;
-  }
-
-  &__item:hover &__icon-fill path {
-    fill: #fff;
-  }
-
-  &__item:hover &__icon .stroke {
-    stroke: #fff;
-  }
-
-  &__item:hover &__icon .fill {
-    fill: #fff;
-  }
-
-  &__item:hover &__arrow path {
-    stroke: #fff;
-  }
-
   //-----User-----
 
   &__user {
@@ -171,6 +147,9 @@ body {
 
 .header {
   margin-top: 41px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 
   &__title {
     font-weight: 500;
@@ -198,6 +177,10 @@ body {
     gap: 52px;
   }
 
+  &__mobile-menu {
+    display: none;
+  }
+
   &__main {
     display: flex;
     flex-direction: column;
@@ -206,7 +189,6 @@ body {
     padding: 30px 44px 40px 38px;
 
     width: 968px;
-    height: 812px;
 
     border-radius: 30px;
     background-color: $bg-prime;
@@ -359,7 +341,7 @@ body {
       border: 1px solid #00b087;
       border-radius: 4px;
       padding: 3px 17px;
-      width: 80px;
+      width: 100%;
       height: 29px;
 
       font-weight: 500;
@@ -373,7 +355,7 @@ body {
       border: 1px solid #df0404;
       border-radius: 4px;
       padding: 3px 11px;
-      width: 80px;
+      width: 100%;
       height: 29px;
 
       font-weight: 500;
@@ -383,11 +365,11 @@ body {
     }
 
     // -----Unerdlines-----
-    th::after {
+    thead tr::after {
       content: "";
       position: absolute;
       left: -38px;
-      top: 34px;
+      bottom: 0;
       height: 1px;
       width: calc(100% + 44px + 38px);
       background-color: #eee;
@@ -466,5 +448,267 @@ body {
     color: #000;
 
     padding-top: 4px;
+  }
+}
+
+// ----Menu hover-----
+
+@media (hover: hover) {
+  .sidebar {
+    &__item:hover {
+      background-color: $primary-color;
+    }
+
+    &__item:hover &__link {
+      color: #fff;
+    }
+
+    &__item:hover &__icon-stroke path {
+      stroke: #fff;
+    }
+
+    &__item:hover &__icon-fill path {
+      fill: #fff;
+    }
+
+    &__item:hover &__icon .stroke {
+      stroke: #fff;
+    }
+
+    &__item:hover &__icon .fill {
+      fill: #fff;
+    }
+
+    &__item:hover &__arrow path {
+      stroke: #fff;
+    }
+  }
+}
+
+// -----No hover-----
+@media (hover: none) {
+  .sidebar {
+    &__item:active {
+      background-color: $primary-color;
+    }
+
+    &__item:active &__link {
+      color: #fff;
+    }
+
+    &__item:active &__icon-stroke path {
+      stroke: #fff;
+    }
+
+    &__item:active &__icon-fill path {
+      fill: #fff;
+    }
+
+    &__item:active &__icon .stroke {
+      stroke: #fff;
+    }
+
+    &__item:active &__icon .fill {
+      fill: #fff;
+    }
+
+    &__item:active &__arrow path {
+      stroke: #fff;
+    }
+  }
+}
+
+// -----Media-----
+
+@media (min-width: 1441px) {
+  .dashboard {
+    gap: 0px;
+
+    &__content {
+      margin: 0 auto;
+    }
+  }
+}
+
+@media (max-width: 1400px) {
+  .dashboard {
+    gap: 0px;
+
+    &__content {
+      margin: 0 auto;
+      position: relative;
+      left: 50px;
+    }
+  }
+
+  // -----Mini sidebar-----
+
+  .sidebar {
+    position: absolute;
+    height: 1198px;
+    z-index: 1;
+
+    &__open {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      position: absolute;
+      right: -12.5px;
+      top: 43px;
+
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      box-shadow: 0 10px 60px 0 rgba(226, 236, 249, 1);
+      background: #5932ea;
+
+      font-size: 18px;
+      color: #fff;
+    }
+
+    &__open.toggle {
+      transform: scaleX(-1);
+    }
+  }
+
+  .sidebar.toggle {
+    min-width: 100px;
+    width: 100px;
+
+    // -----Open button -----
+
+    &.toggle {
+      .sidebar__item {
+        width: 46px;
+      }
+
+      .sidebar__link {
+        display: none;
+      }
+
+      .sidebar__arrow {
+        display: none;
+      }
+
+      .sidebar__name,
+      .sidebar__role {
+        display: none;
+      }
+    }
+
+    &.toggle {
+      .logo {
+        &__title {
+          display: none;
+        }
+
+        &__img {
+          margin-left: 4px;
+        }
+      }
+    }
+  }
+
+  // -----Modal shadow-----
+
+  .modal-open::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон */
+    z-index: 1; /* Помещаем под все остальные элементы */
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@media (max-width: 1150px) {
+  .dashboard {
+    &__mobile-menu {
+      display: block;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &__mobile-menu svg {
+      width: 60px;
+    }
+
+    &__content {
+      margin: 0 auto;
+      position: static;
+    }
+    &__header {
+      margin-left: 38px;
+    }
+  }
+
+  .sidebar {
+    display: none;
+
+    &__open {
+      display: none;
+    }
+  }
+
+  .mobile {
+    display: flex;
+  }
+}
+
+@media (max-width: 980px) {
+  .dashboard {
+    width: 100%;
+
+    &__content {
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    &__header {
+      margin-left: 38px;
+      margin-right: 38px;
+    }
+
+    &__main {
+      width: 100%;
+    }
+
+    &__table-wrapper {
+      width: 100%;
+      overflow-x: scroll;
+    }
+
+    &__table {
+      min-width: 900px;
+    }
+
+    &__data {
+      font-size: 10px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard {
+    &__data {
+      font-size: 8px;
+    }
+
+    &__footer-list {
+      gap: 5px;
+    }
+
+    &__footer-button {
+      width: 20px;
+      height: 20px;
+
+      font-size: 10px;
+    }
   }
 }
