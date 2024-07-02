@@ -435,11 +435,6 @@ body {
     color: #404b52;
   }
 
-  &__footer-button:hover {
-    background: #5932ea;
-    color: #fff;
-  }
-
   &__footer-dots {
     font-weight: 500;
     font-size: 12px;
@@ -483,6 +478,11 @@ body {
       stroke: #fff;
     }
   }
+
+  .dashboard__footer-button:hover {
+    background: #5932ea;
+    color: #fff;
+  }
 }
 
 // -----No hover-----
@@ -515,6 +515,11 @@ body {
     &__item:active &__arrow path {
       stroke: #fff;
     }
+  }
+
+  .dashboard__footer-button:active {
+    background: #5932ea;
+    color: #fff;
   }
 }
 
@@ -696,6 +701,10 @@ body {
 
 @media (max-width: 480px) {
   .dashboard {
+    &__main {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
     &__data {
       font-size: 8px;
     }
@@ -709,6 +718,27 @@ body {
       height: 20px;
 
       font-size: 10px;
+    }
+  }
+
+  .sidebar {
+    min-width: 200px;
+    width: 200px;
+    padding-left: 10px;
+
+    &__item {
+      width: 170px;
+      padding-right: 20px;
+    }
+  }
+  .logo {
+    align-items: center;
+    &__title {
+      font-size: 18px;
+    }
+
+    &__img {
+      margin-left: 4px;
     }
   }
 }
