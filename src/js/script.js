@@ -3,24 +3,30 @@ document.addEventListener("DOMContentLoaded", function () {
   const mobileMenu = document.querySelector(".dashboard__mobile-menu ");
   const sidebar = document.querySelector(".sidebar");
   const body = document.querySelector("body");
-  const modal = document.querySelector("modal-open");
 
+  function openMenu() {
+    sidebar.classList.toggle("toggle");
+    body.classList.toggle("modal-open");
+  }
+
+  // -----Mini-menu-open-----
   openButton.addEventListener("click", () => {
-    sidebar.classList.toggle("toggle");
+    openMenu();
     openButton.classList.toggle("toggle");
-    body.classList.toggle("modal-open");
   });
 
+  // -----Mobile-menu-open-----
   mobileMenu.addEventListener("click", () => {
+    openMenu();
     sidebar.classList.toggle("mobile");
-    sidebar.classList.toggle("toggle");
-    body.classList.toggle("modal-open");
   });
 
+  // -----Modal-close-----
   body.addEventListener("click", (e) => {
     if (e.target.className === "modal-open") {
       body.classList.remove("modal-open");
-      sidebar.classList.toggle("mobile");
+      sidebar.classList.remove("mobile");
+      openButton.classList.remove("toggle");
       sidebar.classList.toggle("toggle");
     }
   });
